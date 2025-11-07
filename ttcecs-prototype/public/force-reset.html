@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resetting Theme...</title>
+    <style>
+        body {
+            font-family: system-ui;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .loader { font-size: 48px; margin-bottom: 20px; }
+    </style>
+    <script>
+        // NUCLEAR option - clear everything and force light
+        localStorage.clear();
+        sessionStorage.clear();
+        localStorage.setItem('theme', 'light');
+        document.documentElement.setAttribute('data-theme', 'light');
+        
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 1500);
+    </script>
+</head>
+<body>
+    <div class="loader">☀️</div>
+    <h1>Resetting to Light Theme...</h1>
+    <p>Redirecting in 1.5 seconds...</p>
+</body>
+</html>

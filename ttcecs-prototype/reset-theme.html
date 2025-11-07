@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reset TTCECS Theme</title>
+</head>
+<body>
+    <h1>Theme Reset Tool</h1>
+    <p id="current">Checking current theme...</p>
+    <button onclick="resetTheme()">Reset to Light Theme</button>
+    <script>
+        // Show current theme
+        const current = localStorage.getItem('theme');
+        document.getElementById('current').textContent = 'Current theme: ' + (current || 'not set (defaults to light)');
+        
+        function resetTheme() {
+            localStorage.setItem('theme', 'light');
+            document.getElementById('current').textContent = 'Theme reset to: light (refresh your main site now)';
+            alert('Theme reset to LIGHT! Now refresh your TTCECS site.');
+        }
+    </script>
+</body>
+</html>
