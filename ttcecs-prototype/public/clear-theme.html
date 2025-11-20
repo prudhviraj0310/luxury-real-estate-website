@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reset TTCECS Theme to Light</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card {
+            background: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 500px;
+        }
+        h1 { color: #333; margin-bottom: 1rem; }
+        #status { padding: 1rem; background: #f0f0f0; border-radius: 0.5rem; margin: 1.5rem 0; }
+        button {
+            background: linear-gradient(90deg, #27A9E1, #76C043);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button:hover { transform: scale(1.05); }
+        .success { color: #28a745; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>�� TTCECS Theme Reset</h1>
+        <div id="status">
+            <p><strong>Current theme:</strong> <span id="current"></span></p>
+        </div>
+        <button onclick="resetTheme()">Reset to Light Theme ☀️</button>
+        <p id="result" style="margin-top: 1.5rem;"></p>
+    </div>
+    <script>
+        // Check current theme
+        const current = localStorage.getItem('theme') || 'not set (defaults to light)';
+        document.getElementById('current').textContent = current;
+        
+        function resetTheme() {
+            localStorage.setItem('theme', 'light');
+            document.getElementById('result').innerHTML = 
+                '<span class="success">✅ Theme reset to LIGHT!</span><br><br>' +
+                '<a href="/" style="color: #27A9E1; font-weight: bold;">← Go back to homepage</a><br><br>' +
+                '<small>The page will auto-refresh in 3 seconds...</small>';
+            
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

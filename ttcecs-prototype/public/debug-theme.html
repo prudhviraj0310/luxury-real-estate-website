@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theme Debug</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #f0f0f0; }
+        pre { background: white; padding: 20px; border-radius: 8px; }
+        button { padding: 10px 20px; margin: 10px 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Theme Debug Tool</h1>
+    <pre id="output">Checking...</pre>
+    <button onclick="clearAndReload()">Clear ALL & Reload</button>
+    <button onclick="forceLight()">Force Light Theme</button>
+    
+    <script>
+        function showInfo() {
+            const info = {
+                'localStorage.theme': localStorage.getItem('theme'),
+                'document theme attribute': document.documentElement.getAttribute('data-theme'),
+                'All localStorage keys': Object.keys(localStorage),
+                'Full localStorage': JSON.stringify(localStorage, null, 2)
+            };
+            document.getElementById('output').textContent = JSON.stringify(info, null, 2);
+        }
+        
+        function clearAndReload() {
+            localStorage.clear();
+            alert('Cleared! Reloading...');
+            window.location.href = '/';
+        }
+        
+        function forceLight() {
+            localStorage.setItem('theme', 'light');
+            document.documentElement.setAttribute('data-theme', 'light');
+            alert('Set to light! Reloading...');
+            window.location.href = '/';
+        }
+        
+        showInfo();
+        setInterval(showInfo, 1000);
+    </script>
+</body>
+</html>
