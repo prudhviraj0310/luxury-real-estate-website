@@ -110,8 +110,8 @@ export default function Hero(){
                   onClick={() => setActiveSlide((prev) => (prev + 1) % slides.length)}
                   className="text-white hover:text-white/70 transition-colors drop-shadow-lg"
                 >
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth{2} d="M9 5l7 7-7 7" />
+                  <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
               </motion.div>
